@@ -12,4 +12,4 @@ Type in the "help" command to view all the availble commands.
 # Credits
 This project was made by NotHavoc as Team Novagon.
 # License
-GPL 3.0
+MIT License
