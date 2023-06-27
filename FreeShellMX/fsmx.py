@@ -2,32 +2,25 @@ import os
 import socket
 import platform
 import webbrowser
+import colorama
+from colorama import Fore
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 clear = lambda: os.system('cls')
 
 
-version = "v1.0.0"
+version = "v1.1.0"
 pcname = socket.gethostname()
 username = os.getlogin()
+color = Fore.WHITE
 
 print("Welcome to FreeShellMX", version,"! \n")
 
 while True:
-    cmds = input(username + "@" +pcname+ " -& ")
+    cmds = input(color + username + "@" +pcname+ " -$ ")
 
     if cmds == "about":
-        print("\n")
+        print("")
         print("'########:'########::'########:'########::'######::'##::::'##:'########:'##:::::::'##:::::::")
         print("##.....:: ##.... ##: ##.....:: ##.....::'##... ##: ##:::: ##: ##.....:: ##::::::: ##:::::::")
         print("##::::::: ##:::: ##: ##::::::: ##::::::: ##:::..:: ##:::: ##: ##::::::: ##::::::: ##:::::::")
@@ -36,26 +29,25 @@ while True:
         print("##::::::: ##::. ##:: ##::::::: ##:::::::'##::: ##: ##:::: ##: ##::::::: ##::::::: ##:::::::")
         print("##::::::: ##:::. ##: ########: ########:. ######:: ##:::: ##: ########: ########: ########:")
         print("..::::::::..:::::..::........::........:::......:::..:::::..::........::........::........::")
-        print("FreeShellMX", version, "\n")
+        print(Fore.CYAN + "FreeShellMX", version, "\n")
     elif cmds == "help":
-        print(f"{bcolors.OKCYAN}BASIC FREESHELL COMMANDS:")
-        print("help -> shows all commands")
-        print("about -> freeshellMX about screen")
-        print("exit -> exits freeshellMX")
-        print("clear -> clears freeshellMX terminal")
-        print(f"{bcolors.FAIL}ADVANCED FREESHELL COMMANDS:")
-        print("fs seldir -> prints out selected directory")
-        print("fs dir -> prints out items in directory")
-        print("fs mkdir -> makes a file in target directory")
-        print("fs pcinfo -> prints out pc information")
-        print("fs rmdir -> removes file/folder in current directory")
-        print("fs myip -> prints out current ip")
-        print("fs search -> opens user-inputted url url in browser")
-        print("fs gitpage -> opens github page of fsmx in browser")
-
-
+        print(Fore.CYAN + "BASIC FREESHELL COMMANDS:")
+        print(Fore.CYAN + "help -> shows all commands")
+        print(Fore.CYAN + "about -> freeshellMX about screen")
+        print(Fore.CYAN + "exit -> exits freeshellMX")
+        print(Fore.CYAN + "clear -> clears freeshellMX terminal")
+        print(Fore.MAGENTA + "ADVANCED FREESHELL COMMANDS:")
+        print(Fore.MAGENTA + "fs seldir -> prints out selected directory")
+        print(Fore.MAGENTA + "fs dir -> prints out items in directory")
+        print(Fore.MAGENTA + "fs mkdir -> makes a file in target directory")
+        print(Fore.MAGENTA + "fs pcinfo -> prints out pc information")
+        print(Fore.MAGENTA + "fs rmdir -> removes file/folder in current directory")
+        print(Fore.MAGENTA + "fs myip -> prints out current ip")
+        print(Fore.MAGENTA + "fs search -> opens user-inputted url in browser")
+        print(Fore.MAGENTA + "fs gitpage -> opens github page of fsmx in browser")
+        print(Fore.MAGENTA + "fs color -> change shell color")
     elif cmds == "exit":
-        confirm = input(f"{bcolors.WARNING} WARNING : Are you sure? (Y/N) ").lower()
+        confirm = input( Fore.LIGHTYELLOW_EX + "WARNING : Are you sure? (Y/N) ").lower()
         if confirm == "y":
             exit()
         else:
@@ -74,10 +66,13 @@ while True:
         print(platform.uname())
     elif cmds == "fs rmdir":
         file = input("Insert file name to remove. ")
-        confirm = input(f"{bcolors.WARNING} WARNING : Are you sure? (Y/N) ").lower()
+        confirm = input(Fore.LIGHTYELLOW_EX + "WARNING : Are you sure? (Y/N) ").lower()
         if confirm == "y":
-            rmdir = os.path.join(os.getcwd(), file)
-            os.rmdir(rmdir)
+            try:
+                rmdir = os.path.join(os.getcwd(), file)
+                os.rmdir(rmdir)
+            except FileNotFoundError:
+                print(Fore.RED + "File ", file ," not found.")
         else:
             break
     elif cmds == "fs myip":
@@ -86,5 +81,28 @@ while True:
     elif cmds == "fs search":
         website = input("What website do you want to open? (URL) : ")
         webbrowser.open(str(website))
+    elif cmds == "fs gitpage":
+        webbrowser.open("https://github.com/project-novagon/FreeshellMX")
+    elif cmds == "fs color":
+        colorsel = input("What color do you want to choose? ( fs color -h / fs color help for available colors): ")
+        if colorsel == "PURPLE" or colorsel == "purple":
+            color = Fore.MAGENTA
+        if colorsel == "GREEN" or colorsel == "green":
+            color = Fore.GREEN
+        if colorsel == "WHITE" or colorsel == "white":
+            color = Fore.WHITE
+        if colorsel == "BLUE" or colorsel == "blue":
+            color = Fore.BLUE
+        if colorsel == "RED" or colorsel =="red":
+            color = Fore.LIGHTRED_EX
+    elif cmds == "fs color -h" or cmds == "fs color help":
+        print("Availble colors:")
+        print(Fore.MAGENTA + "Purple")
+        print(Fore.GREEN + "Green")
+        print(Fore.WHITE + "White")
+        print(Fore.BLUE + "Blue")
+        print(Fore.RED + "Red")
+    else:
+        print(Fore.RED + "ERROR : Command not found!")
 
     
