@@ -1,15 +1,15 @@
+# FreeshellMX <img src="https://nukocities.neocities.org/nuko/act/cat564.gif"> 
 
-# FreeshellMX
-FreeShellMX is a fork of FreeShell with more features, made purely in python
-# How to install
-Linux packages will be implemented soon (for now use the .py file)
-,Mac OS packages will most likely not be implemented
-,Windows .EXE file is in the Releases tab.
+FreeshellMX is a fork of [Freeshell](https://github.com/project-novagon/freeshell) with more features, made purely in Python
 
-FreeShellMX is ready out of the box.
-# How to use
-Type in the "help" command to view all the availble commands.
-# Credits
-This project was made by NotHavoc as Team Novagon.
-# License
-MIT License
+## Installation <img src="https://nukocities.neocities.org/nuko/act/cat15.gif">
+> **Note**
+> Windows defender thinks it's a virus
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" width="16px" height="16px"> [Windows `.exe`](https://github.com/project-novagon/FreeshellMX/releases/download/V1.0.0/FreeShellMX.zip)
+
+FreeshellMX is also ready out of the box.
+
+## Usage <img src="https://nukocities.neocities.org/nuko/act/cat34.gif">
+
+Type in the `help` command to view all the availble commands.
