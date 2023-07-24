@@ -1,4 +1,4 @@
-# FreeshellMX <img src="https://nukocities.neocities.org/nuko/act/cat564.gif"> 
+# [DEPRECATED] FreeshellMX <img src="https://nukocities.neocities.org/nuko/act/cat564.gif"> 
 
 FreeshellMX is a fork of [Freeshell](https://github.com/project-novagon/freeshell) with more features, made purely in Python
 
